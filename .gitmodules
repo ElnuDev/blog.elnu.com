@@ -1,0 +1,3 @@
+[submodule "themes/sakura-hugo-theme"]
+	path = themes/sakura-hugo-theme
+	url = git@github.com:ElnuDev/sakura-hugo-theme.git
