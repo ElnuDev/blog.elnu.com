@@ -1,3 +1,18 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://blog.elnu.com/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = "Elnu's Blog"
+theme = 'sakura-hugo-theme'
+enableEmoji = true
+paginate = 3
+
+[params]
+	MatomoURL = 'matomo.elnu.com'
+	MatomoSiteId = '5'
+	HomepageHeader = '<a href="https://elnu.com/">&laquo; Back to profile</a>'
+
+[permalinks]
+	pages = '/:title'
+	posts = '/:year/:month/:title/'
+
+[taxonomies]
+	tag = 'tags'
