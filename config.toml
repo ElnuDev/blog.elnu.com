@@ -13,6 +13,8 @@ paginate = 3
 	MatomoURL = 'matomo.elnu.com'
 	MatomoSiteId = '5'
 	HomepageHeader = '<a href="https://elnu.com/">&laquo; Back to profile</a>'
+	Theme = 'earthly'
+	ThemeColor = '#007559'
 
 [permalinks]
 	pages = '/:title'
