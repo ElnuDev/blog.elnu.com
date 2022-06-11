@@ -24,5 +24,8 @@ paginate = 3
 	tag = 'tags'
 
 [markup]
+	[markup.goldmark]
+		[markup.goldmark.renderer]
+			unsafe = true
 	[markup.highlight]
 		style = 'friendly'
