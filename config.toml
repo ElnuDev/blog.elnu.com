@@ -7,6 +7,9 @@ paginate = 3
 
 [params]
 	Author = 'Elnu'
+	AuthorProfile = 'https://elnu.com/'
+	AuthorTwitter = 'ElnuDev'
+	SiteTwitter = 'ElnuDev'
 	MatomoURL = 'matomo.elnu.com'
 	MatomoSiteId = '5'
 	HomepageHeader = '<a href="https://elnu.com/">&laquo; Back to profile</a>'
@@ -17,3 +20,7 @@ paginate = 3
 
 [taxonomies]
 	tag = 'tags'
+
+[markup]
+	[markup.highlight]
+		style = 'friendly'
