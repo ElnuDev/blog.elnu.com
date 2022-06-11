@@ -3,6 +3,7 @@ title: "Cleaning Up HTML with Tidy"
 date: 2022-01-24T13:04:45-08:00
 tags:
   - programming
+description: "Static site generators such as Hugo create incredibly messy HTML output. Luckily, HTML tidy can make your ugly markup pristine, even removing comments! Let’s learn how to use tidy and configure it to your needs."  
 ---
 
 One issue with using static site generators that use templates like [Hugo](https://gohugo.io) is that their generated HTML files are often incredibly messy, with bad indentation, tons of unneeded whitespace, and overall unconcise formatting. While it *is* technically possible to fix this in your templates, it takes a lot of effort, makes your templates less readable, and frankly is a waste of time.

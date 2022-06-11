@@ -4,6 +4,7 @@ date: 2022-01-27T20:55:43-08:00
 tags:
   - japanese
   - ff
+description: "An analysis of the Japanese opening text of Final Fantasy (1987) for the Famicom."
 ---
 
 > **Disclaimer:** There may be mistakes in the Japanese content in this post, I am not an expert. This is simply some of my personal notes that I am making public as a blog post. Use this as reference with caution.

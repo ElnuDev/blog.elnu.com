@@ -4,6 +4,7 @@ date: 2022-01-23T14:47:56-08:00
 tags:
   - japanese
   - programming
+description: "The Markdown spec doesn’t include support for furigana, more commonly known as ruby text, which can be troublesome if you want to write content in Japanese. In this tutorial, learn how to add furigana support to Hugo using regular expressions!"
 ---
 
 > TL;DR: [Here](#creating-the-regular-expression)

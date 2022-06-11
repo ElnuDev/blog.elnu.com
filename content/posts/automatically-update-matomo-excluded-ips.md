@@ -3,6 +3,7 @@ title: "Automatically Update Matomo Excluded IPs"
 date: 2022-02-28T14:54:56-08:00
 tags:
   - programming
+description: "Going into Matomo to manually update excluded IPs to prevent your own visits from being counted is a pain. Learn how to write a command that updates them so you don’t have to!"
 ---
 
 > :warning: Edited from [my forum posts on Matomo forums](https://forum.matomo.org/t/cant-find-global-website-settings-global-excluded-ips-etc-in-database-nor-configuration-files/44888)
