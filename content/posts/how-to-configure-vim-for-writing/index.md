@@ -5,6 +5,7 @@ tags:
   - programming
   - writing
   - vim
+description: "Learn how to configure Vim to be a writing machine by adding spellcheck, support for smart/typographic quotes, a custom status bar, and more!"
 ---
 
 There are a lot of tools that are for the most part only used in the programming sphere that could do a lot of good if they received adoption among the wider non-technical community, such as Git and Markdown. Git and version control are useful to anyone who works on text files all the time and needs to keep backups and old versions, such as authors, and Markdown is a much more succinct way of formatting simply-formatted text documents than Microsoft Office.
