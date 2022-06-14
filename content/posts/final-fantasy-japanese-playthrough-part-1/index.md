@@ -13,7 +13,7 @@ Today I decided to try the original [*Final Fantasy*](https://en.wikipedia.org/w
 
 In this post, I'll be first be quickly going over what I used to run the game, and then text that I went over and the vocabulary I gained from it.
 
-### Setup
+## Setup
 
 To play, I first downloaded the revision B game ROM from [WoWroMs.com](https://wowroms.com/en/roms/nintendo-entertainment-system/final-fantasy-japan/22274.html). Not surprisingly, it's absolutely *tiny*: the entire ROM is less than a megabyte.
 
@@ -21,9 +21,9 @@ To run it, I used RetroArch, an open source emulation frontend. You can get it f
 
 RetroArch itself is not an emulator, however: it just provides the frontend and tools to use emulators. In order to load an emulator into RetroArch, you need to install a *core*. Personally, I use the *Mesen* NES/Famicom core. On the standard version of RetroArch available on their website, you can install new cores directly inside of RetroArch through the core downloader. However, due to Steam's limitations, on the Steam version this menu isn't available. Instead, you get cores buy getting the (free) DLC on Steam, all of which are listed on RetroArch's store page. The Mesen core I use is available on Steam [here](https://store.steampowered.com/app/1205330/RetroArch__Mesen/).
 
-### Content
+## Content
 
-[![Final Fantasy Japanese opening text](../final-fantasy-1.png)](../final-fantasy-1.png)
+![Final Fantasy Japanese opening text](final-fantasy-1.png)
 
 I didn't spend too long on it, but I did read through the opening text (see screenshot) and get vocab from it.
 
@@ -43,7 +43,7 @@ The Famicom didn't have enough memory for kanji, so all the text is purely in ka
 >
 > そしてそのてには　それぞれクリスタルにぎられていた
 
-### Kanji and attempted translation
+## Kanji and attempted translation
 
 > この[世]{せ}[界]{かい}は　[暗]{あん}[黒]{こく}に[包]{つつ}まれている
 
@@ -83,13 +83,13 @@ Here, [染]{そ}まる is the passive form of [染]{そ}める, to dye. So liter
 
 ***and in each of their hands was a crystal.***
 
-### The official NES version
+## The official NES version
 
 Now, let's see how accurate this was!
 
 Here is the official NES version of the opening text.
 
-[![Final Fantasy English opening text](../final-fantasy-2.png)](../final-fantasy-2.png)
+![Final Fantasy English opening text](final-fantasy-2.png)
 
 > The world is veiled in darkness. The wind stops, the see is wild, and the earth begins to rot.
 >
@@ -107,7 +107,7 @@ Overall, I was pretty close, but I made a couple mistakes.
 
 3. 「そまりしとき」was actually 染まりし時, so *when* the world is becomes tainted with darkness, specifying the time condition for the prophecy. I didn't recognize the construction here of *verb nominalization* + し (nominalization of する) + 時. Because I didn't realize that this line was a direction quotation of the prophecy, I didn't pick up on this, even though I should have. What the し is doing here is that it's rather like 〜にする, and turns it from being simply *the time when the world is tainted with darkness*, 染まり時, to *the time when the world **becomes** tainted with darkness*.
 
-### Conclusion
+## Conclusion
 
 This was a really fun practice. I honestly need to spend more time consuming native Japanese material; I honestly study way less than I should and my vocabulary game isn't where it should be. I put all of the new/forgotten vocabulary terms from this into my [Anki](https://apps.ankiweb.net/) deck.
 

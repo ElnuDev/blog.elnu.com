@@ -12,7 +12,7 @@ To my knowledge, Hugo and most other generators don't have built-in beautifiers.
 
 In addition, if your site or blog has a more technical audience that might possibly view your site's source, you're going to give a better impression if you have clean markup.
 
-### HTML Tidy
+## HTML Tidy
 
 `tidy` is the solution for this. Started in 2003 by Dave Raggett, it provides a simple command line tool with [a large number of configuration options](http://api.html-tidy.org/tidy/tidylib_api_5.2.0/tidy_config.html) for how you want your HTML to be "tidied." It is free and open source, with its source code available on [GitHub](https://github.com/htacg/tidy-html5).
 
@@ -32,7 +32,7 @@ tidy -o output.html input.html
 
 However, the default configuration will probably not be to your liking. We'll go over configuration in the next section.
 
-### My `tidy` configuration for usage with Hugo
+## My `tidy` configuration for usage with Hugo
 
 I have created a simple, one line command for first building my site with `hugo`, then cleaning up all of the generated files by first using `find` to get all `*.html` files in `public` (where Hugo dumps generated content), and then finally running `tidy` on each file.
 
