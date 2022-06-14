@@ -36,8 +36,15 @@ Most Vim configurations are done in the user’s `~/.vimrc` file, which applies 
 Inside this file, add the following:
 
 ```VIM
-set linebreak
+setlocal linebreak
 ```
+
+We want to use `setlocal` (or its shorthand `setl`) over the usual `set` because this only sets `linebreak` on the current buffer. If we have multiple files open in Vim, we want to make sure that this setting only applies to open Markdown files.
+
+<details>
+<summary>Thanks to <a href="https://www.reddit.com/user/habamax/">u/habamax</a> for pointing this out!</summary>
+<iframe id="reddit-embed" src="https://www.redditmedia.com/r/vim/comments/vc9oi2/how_to_configure_vim_for_writing/iccz7kq/?depth=1&amp;showmore=false&amp;embed=true&amp;showmedia=false" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" scrolling="no" width="640" height="233"></iframe>
+</details><br>
 
 And you’re done! Vim will now no longer split words across soft-wrapped lines. Now, let’s move on to typographic quotes.
 
@@ -48,7 +55,6 @@ Vim doesn’t have any native support for typographic quotes, so we’ll need to
 Now that we have a package manager for Vim installed, we need to install the plugin itself. Open your `~/.vimrc`, or create it if it doesn’t exist yet, and add the following:
 
 ```VIM
-set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
