@@ -8,17 +8,17 @@ tags:
 description: "Learn how to configure Vim to be a writing machine by adding spellcheck, support for smart/typographic quotes, a custom status bar, and more!"
 ---
 
-There are a lot of tools that are for the most part only used in the programming sphere that could do a lot of good if they received adoption among the wider non-technical community, such as Git and Markdown. Git and version control are useful to anyone who works on text files all the time and needs to keep backups and old versions, such as authors, and Markdown is a much more succinct way of formatting simply-formatted text documents than Microsoft Office.
+There are a lot of tools that are, for the most part, only used in the programming sphere that could do a lot of good if they received adoption among the wider non-technical community. Git and Markdown especially. Version control is useful to anyone who works on text files and needs to be able to revert back to a previous version, and Markdown is a simple and succient way to format simple text documents - especially compared to Microsoft Office.
 
-Another tool that could see wider adoption is Vim, specifically among writers looking for a powerful yet minimal text editor and are willing to put in some time into learning it.
+Another tool that could see wider adoption is Vim, especially among writers looking for a powerful yet minimal text editor, and are willing to invest some time into learning it.
 
-I switched over to Vim a couple weeks ago from nano and [VSCodium](https://vscodium.com/) (a free and open source build of VS Code), and I haven’t looked back since. However, Vim isn’t configured to be excel at anything out of the box, besides perhaps configuration file editing. In this guide, I’ll go over how to configure Vim for writing, assuming you’re writing in Markdown files.
+I switched over to Vim a couple weeks ago from nano and [VSCodium](https://vscodium.com/) (a free and open source build of VS Code), and I haven’t looked back since. However, out of the box, Vim isn’t configured to excel at anything - besides configuration file editing perhaps. In this guide, I’ll go over how to configure Vim for writing, assuming you’re writing in Markdown files.
 
 When you’re done, your Vim will look something like this:
 
 ![Screenshot](screenshot.png)
 
-I will cover the following, **assuming you’re a beginner to Vim and its configuration, but already know the basics of its usage:**
+I will cover the following, **assuming you are slightly familiar with basic editing in Vim:**
 
 - How to set Vim to have soft line breaks at words, not characters, so no words are split across lines
 - How to use smart/typographic quotes (i.e. `“”` instead of the standard ASCII `""`)
@@ -31,9 +31,9 @@ With the introduction out of the way, let’s get right into it!
 
 ## Soft line breaks
 
-Most Vim configurations are done in your `~/.vimrc` file, which is global to all Vim sessions regardless of file type. However, we are going to want our customizations to only apply to Markdown text files. Luckily, Vim has a feature that handles this: [file type plugins](https://vim.fandom.com/wiki/File_type_plugins), which are stored in `~/.vim/ftplugin/`. In our case, let’s create one for Markdown files: `~/.vim/ftplugin/markdown.vim`.
+Most Vim configurations are done in the user's `~/.vimrc` file, which applies to all Vim sessions regardless of file type. However, we want our customizations to only apply to Markdown text files. Luckily, Vim has a feature that handles this. [File Type Plugins](https://vim.fandom.com/wiki/File_type_plugins) allow you to create vim configurations that only apply to certain filetypes. They are stored in `~/.vim/ftplugin/*`. We are going to create one for our Markdown files: `~/.vim/ftplugin/markdown.vim`.
 
-Add the following:
+Inside this file, add the following:
 
 ```VIM
 set linebreak
@@ -43,9 +43,9 @@ And you’re done! Vim will now no longer split words across soft-wrapped lines.
 
 ## Typographic quotes
 
-Vim doesn’t have any support for typographic quotes out of the box, so we’ll need to install the plugin [preservim/vim-textobj-quote](https://github.com/preservim/vim-textobj-quote). There are a few different ways to install plugins in Vim, but in my opinion the easiest one to use is Vundle. If you are on Arch Linux, there is an [AUR package](https://aur.archlinux.org/packages/vundle), otherwise, see the [quick start guide](https://github.com/VundleVim/Vundle.vim#quick-start) on Vundle’s GitHub repository.
+Vim doesn’t have any native support for typographic quotes, so we’ll need to install a plugin. [Preservim/vim-textobj-quote](https://github.com/preservim/vim-textobj-quote) does the job. There are a few different ways to install plugins in Vim, but in my opinion the easiest one to use is Vundle. If you are on Arch Linux, there is an [AUR package](https://aur.archlinux.org/packages/vundle), otherwise, see the [Vundle quick start guide](https://github.com/VundleVim/Vundle.vim#quick-start) on Vundle’s GitHub repository.
 
-Now that we have our Vim package manager installed, let’s install the plugin itself. Open your `~/.vimrc` or create it if it doesn’t exist yet, and add the following:
+Once Vundle is installed, we need to install the plugin itself. Open your `~/.vimrc`, or create it if it doesn’t exist yet, and add the following:
 
 ```VIM
 set nocompatible
@@ -58,11 +58,11 @@ call vundle#end()
 filetype plugin indent on
 ```
 
-Between `vundle#begin()` and `vundle#end()` are where all of your Vim plugins to be installed with Vundle are listed; the rest of the lines are various requirements for Vundle to work properly. By default, Vundle assumes the plugins to be GitHub repositories, so all you need to write down is the repository name. [kana/vim-textobj-user](https://github.com/kana/vim-textobj-user) is an essential dependency for our typographic quote plugin that handles text objects.
+If you are unfamilar with Vundle, between `vundle#begin()` and `vundle#end()` is where all of the Vim plugins you want installed with Vundle are listed; the rest of the lines are various requirements for Vundle to work properly (for more information, see [Vundle's quick start guide](https://github.com/VundleVim/Vundle.vim#quick-start)). By default, Vundle assumes the plugins to be GitHub repositories, so all you need to write down is the repository name. [kana/vim-textobj-user](https://github.com/kana/vim-textobj-user) is an essential dependency for our typographic quote plugin that will handle text objects.
 
-Now you’ve added this, save and exit, and open Vim. Whenever you add or remove Vundle plugins from your `~/.vimrc`, you have to tell Vundle to update your installed plugins. To do this, enter `:PluginInstall` and press enter. If you’ve done everything correctly, Vundle should pull all your plugins from GitHub, and once it’s done you can type `:q` to exit the installation window.
+Now that you've listed the plugins you want, you need to have Vundle install them. Save and exit `~/.vimrc`, and open Vim. Now input `:PluginInstall` and press enter. If you’ve done everything correctly, Vundle should pull all your plugins from GitHub, and once it’s done you can type `:q` to exit the installation window.
 
-The typographic quotes plugin is now installed, but it won’t start up by default. We only want it to run on Markdown files, so open up `~/.vim/ftplugins/markdown.vim` again and add the following:
+The typographic quotes plugin is now installed, but it won’t start up by default. Since we only want it to run on Markdown files, we open up `~/.vim/ftplugins/markdown.vim` again and add the following:
 
 ```VIM
 call textobj#quote#init()
@@ -73,16 +73,16 @@ This will initialize the typographic quote plugin whenever you enter a Markdown 
 ### Useful commands
 
 - Sometimes you may want to override the plugin to type non-typographic quotes. To do this, press <kbd>Ctrl</kbd> + <kbd>V</kbd> (**V** for **V**erbatim) and then type the single or double quotation mark.
-- With this plugin, you convert preexisting text to typographic quotes. There are [instructions on how to do this on the plugin’s repository](https://github.com/preservim/vim-textobj-quote#replace-support), but I was having some difficulty getting them to work.
+- This plugin can also convert preexisting text to typographic quotes. There are [instructions on how to do this on the plugin’s repository](https://github.com/preservim/vim-textobj-quote#replace-support), but I was having some difficulty getting them to work.
 
-  I ended up slightly using a slightly modified version of the instructions which maps <kbd>\c</kbd> to replacing with typographic “curly” quotes and <kbd>\s</kbd> to replacing with non-typographic “straight” quotes. (You can replace the backslash with any character, provided it isn’t already mapped. The backslash key is handy, however, since it’s one of the few keys that isn’t connected to any commands in Vim’s default configuration.)
+  I ended up slightly using a slightly modified version of the instructions which maps <kbd>\c</kbd> to run the plugin replacing straight quotes with typographic “curly” quotes, and <kbd>\s</kbd> to do the inverse. (You can replace the backslash with any character, provided it isn’t already mapped. The backslash key is handy, however, since it’s one of the few keys that isn’t connected to any commands in Vim’s default configuration.)
 
   ```VIM
   map \c <plug>ReplaceWithCurly
   map \s <plug>ReplaceWithStraight
   ```
 
-  In normal mode, these commands replace all occurrences in the current paragraph, and in visual mode (how you do visual selection in Vim, press <kbd>v</kbd>) they replace all occurrences in the current selection. To replace throughout the entire document, Press <kbd>gg</kbd> to go to the top of the document, <kbd>v</kbd> to enter visual mode, <kbd>G</kbd> to jump to the last line of the document, <kbd>$</kbd> to go to the last character, selecting everything, and finally either <kbd>\c</kbd> or <kbd>\s</kbd> to replace. So, altogether: <kbd>ggvG$</kbd> + either <kbd>\c</kbd> for curly quotes or <kbd>\s</kbd> for straight quotes.
+  In normal mode, these commands replace all occurrences in the current paragraph, and in visual mode (how you do visual selection in Vim: press <kbd>v</kbd> while in normal mode) they replace all occurrences in the current selection. To replace throughout the entire document, Press <kbd>gg</kbd> to go to the top of the document, <kbd>v</kbd> to enter visual mode, <kbd>G</kbd> to jump to the last line of the document, <kbd>$</kbd> to go to the last character, selecting everything, and finally either <kbd>\c</kbd> or <kbd>\s</kbd> to run the plugin command. So, altogether: <kbd>ggvG$</kbd> + either <kbd>\c</kbd> for curly quotes or <kbd>\s</kbd> for straight quotes.
 - For more information and advanced usage, [see the plugin’s README](https://github.com/preservim/vim-textobj-quote#vim-textobj-quote).
 
 ## Spellcheck
@@ -94,7 +94,7 @@ set spell spelllang=en
 set spelllang+=cjk " prevent CJK characters from being spellchecked
 ```
 
-Of course, if you want spellchecking in another language, change `en` to whatever your language code is. The second line is optional, however if you often work with documents including Chinese, Japanese, or Korean (CJK) characters this is handy since otherwise Vim will mark them all as spelling mistakes.
+Of course, if you want spellchecking in another language, change `en` to whatever your language code is. The second line is optional, however if you often work with documents including Chinese, Japanese, or Korean (CJK) characters like me, this is handy since otherwise Vim will mark them all as spelling mistakes.
 
 ### Useful commands
 
@@ -106,11 +106,11 @@ Of course, if you want spellchecking in another language, change `en` to whateve
 
 ### Patching dictionary for typographic quotes
 
-If you decided to skip the typographic quotes configuration from earlier, you can stop here, but otherwise we’re going to have to patch our Vim spellcheck dictionary to include words with typographic quotes (e.g. `doesn’t`) which will be all marked as incorrect otherwise.
+If you decided to skip the typographic quotes configuration from earlier, you can stop here, but otherwise we’re going to have to patch our Vim spellcheck dictionary to include words with typographic single quotes (e.g. `doesn’t`) which will be marked as incorrect otherwise.
 
 [This](https://vi.stackexchange.com/q/118) thread on the Vi and Vim Stack Exchange was very helpful, so if you’re having any trouble please refer to the two answers there.
 
-First, create the directory `~/.vim/spell` and enter it if it doesn’t exist already. We’re going to need two dictionary files, which are available [here](http://wordlist.aspell.net/dicts/). Please check to see if there has been a newer version on the website and `wget` that instead if the one I’m using (2020.12.07) has become out of date. I’m going to use the American English (setting `_LANG` to `en_US`) dictionary file, but Canadian (`en_CA`) and Australian (`en_AU`) English dictionaries are also available. If you need British English or larger word list, more archive downloads are available [here](https://sourceforge.net/projects/wordlist/files/speller/2020.12.07/), although I haven’t tested them.
+First, create the directory `~/.vim/spell` and enter it. We’re going to need two dictionary files, which are available [here](http://wordlist.aspell.net/dicts/). Please check to see if there has been a newer version on the website and `wget` that instead, if the one I’m using (2020.12.07) has become out of date. I’m going to use the American English (setting `_LANG` to `en_US`) dictionary file, but Canadian (`en_CA`) and Australian (`en_AU`) English dictionaries are also available. If you need British English or larger word list, more archive downloads are available [here](https://sourceforge.net/projects/wordlist/files/speller/2020.12.07/), although I haven’t tested them.
 
 ```SH
 $ mkdir -p ~/.vim/spell && cd ~/.vim/spell
@@ -154,7 +154,7 @@ set statusline+=%=%{Words()}\ words,
 set statusline+=\ %{Characters()}\ characters,\ about
 set statusline+=\ %{Minutes()}\ minutes
 " remove ugly white background
-hi StatusLine ctermfg=0 ctermbg=none cterm=bold
+hi StatusLine ctermfg=0 ctermbg=none cterm=bold "0 for the terminal color 0
 ```
 
 I haven’t done any Vimscript before working on this configuration, so this is mostly cobbled this together from a few Stack Overflow threads. There might be better ways of doing some things!
