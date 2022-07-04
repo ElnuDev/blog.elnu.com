@@ -1,6 +1,8 @@
 ---
 title: "Creating a Firefox PWA for Discord on Linux"
 date: 2022-07-01T18:17:51-07:00
+tags:
+  - programming
 ---
 
 In this tutorial, I’ll explain how to set up, install, and configure a Firefox [PWA](https://en.wikipedia.org/wiki/Progressive_web_application) (Progressive Web Application) for Discord that integrates into your system, and some background on why you’d want to do so over the regular desktop version. I’ve tested these steps on Arch Linux and Xubuntu 20.04.
