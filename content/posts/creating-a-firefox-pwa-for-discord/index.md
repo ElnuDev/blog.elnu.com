@@ -1,10 +1,9 @@
 ---
-title: "Creating a Firefox PWA for Discord"
+title: "Creating a Firefox PWA for Discord on Linux"
 date: 2022-07-01T18:17:51-07:00
-draft: true
 ---
 
-In this tutorial, I’ll explain how to set up, install, and configure a Firefox [PWA](https://en.wikipedia.org/wiki/Progressive_web_application) (Progressive Web Application) for Discord that integrates into your system, and some background on why you’d want to do so over the regular desktop version.
+In this tutorial, I’ll explain how to set up, install, and configure a Firefox [PWA](https://en.wikipedia.org/wiki/Progressive_web_application) (Progressive Web Application) for Discord that integrates into your system, and some background on why you’d want to do so over the regular desktop version. I’ve tested these steps on Arch Linux and Xubuntu 20.04.
 
 ## Background
 
@@ -34,31 +33,31 @@ First, install the [PWAs for Firefox extension from the Firefox add-ons store](h
 
 ## Create the Discord PWA
 
-Navigate to Discord [https://discord.com](https://discord.com/channels/@me) (**not the app**, we need the root of the PWA to be the index page so all pages under the Discord domain are considered part of the PWA) and click on *Install current site* in the extension. Change the *Start URL* to [https://discord.com/app](https://discord.com/app) so the PWA opens to the app page, not the landing page. And... you’re done! You’ve created a PWA for Firefox, it’s as simple as that. You can now open it from within the extension by clicking on the external link button.
+Navigate to Discord [https://discord.com](https://discord.com/channels/@me) (**not the app**, we need the root of the PWA to be the index page so all pages under the Discord domain are considered part of the PWA) and click on *Install current site* in the extension. Change the *Name* field of the PWA to just “Discord”, the default will include the tagline and be a bit overly long. Change the *Start URL* to [https://discord.com/app](https://discord.com/app) so the PWA opens to the app page, not the landing page. And... you’re done! You can leave all the other fields as-is and press *Install web app*. You’ve created a PWA for Firefox, it’s as simple as that. You can now open it from within the extension by clicking on the external link button.
 
-However, there’s more configuration to be done. `firefox-pwa` creates a Firefox profile for the PWAs that’s completely separate from your main profile, so we’re going to have to do some configuration there. (By default, all of your PWAs share a single *Default* profile under the *Profiles* tab of the extension, but if you want to have different PWAs have different profiles you can configure it there.)
+However, there’s more configuration to be done. Firefox PWA creates a Firefox profile for the PWAs that’s completely separate from your main profile, so we’re going to have to do some configuration there. (By default, all of your PWAs share a single *Default* profile under the *Profiles* tab of the extension, but if you want to have different PWAs have different profiles you can configure it there.)
 
 ## Configure the PWA Firefox profile
 
 It’s up to you how want to configure the profile, but here’s what I did and recommend.
 
-- In the :gear: *General* portion, there’s a new settings section, *Progressive Web Apps*.
-  - For me I checked *Open out of scope URLs in a default browser,* which makes it so non-Discord links you visit within the PWA profile are opened in your main Firefox profile instead of within the PWA. This is also important considering any external sites you visit within the PWA aren’t otherwise going to be added to your main profile’s history.
-  - In addition, I also set *Display the address bar* to *Never,* as this is not necessary and adds to the clutter of the window.
-  - !!! force links into new window?
+- In the :gear: *General* portion, there’s a new settings section, *Progressive Web Apps*. For me I checked *Open out of scope URLs in a default browser,* which makes it so non-Discord links you visit within the PWA profile are opened in your main Firefox profile instead of within the PWA. This is also important considering any external sites you visit within the PWA aren’t otherwise going to be added to your main profile’s history.
 - Under :jigsaw: *Extensions & Themes*, you You might also want to [choose a theme that matches Discord’s theming](https://addons.mozilla.org/en-US/firefox/addon/discord-dark-rebrand/).
 - Under :lock: *Privacy & Security* / *History*, set that history to *Use custom settings* for history and uncheck all the boxes. This will make it so the profile won’t keep any history (which is unnecessary in a PWA), but still will remember cookies so you don’t have to log in again each time you reopen it.
-- If you shut down your computer with the PWA open, Firefox will think that your previous session didn’t close properly and will prompt your previous session. Since we’re only going to be the PWA profile for single websites (i.e. Discord), this is unnecessary. To disable this behavior, we’re going to need to change a couple options under the advanced configuration preferences. Within the PWA, we don’t have access to the URL bar, so to enter the preferences, press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> to enter the developer tools. Enter the console and type in the following:
+
+If you shut down your computer with the PWA open, Firefox will think that your previous session didn’t close properly and will reopen your old windows. I haven’t figured out a way to prevent this, but if you want to mess with advanced configuration, here’s how.
+
+Within the PWA, we don’t have access to the URL bar, so to enter the preferences, press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> to enter the developer tools. Enter the console and type in the following:
   
-  ```JS
-  document.location.href = "about:config"
-  ```
+```JS
+document.location.href = "about:config"
+```
 
-  Firefox may make you type `allow pasting` beforehand.
-
-  After this, you will enter the advanced settings page. Press *Accept the Risk and Continue*, search up `browser.sessionstore.max_tabs_undo` and `browser.sessionstore.max_windows_undo` and set both to 0.
+Firefox will make you type `allow pasting` beforehand.
 
 ## Launching the PWA from the command line
+
+**If you are using a distro with a desktop environment,** Discord should already be in your applications drawer, so unless you want to be able to launch Discord from the command line, you can skip this step.
 
 I have uninstalled the desktop Discord application `discord`, and I want to replace it with a shell script that launches the PWA. This will enable you to launch the PWA from the command line simply by typing `discord`, and also from an application launcher like [rofi](https://github.com/davatorium/rofi). This way, we don’t have to rely on launching Discord from the PWAsForFirefox extension.
 
@@ -99,3 +98,13 @@ sudo chmod +x /usr/bin/discord
 ```
 
 You’re done! You’ve created a PWA for Discord that looks and behaves like a desktop application, but without a lot of the hassle involved with the actual desktop app.
+
+Note that if you decide to reinstall the normal Electron-based desktop Discord application, you’ll have to move/delete `/usr/bin/discord` first, as desktop Discord needs to put its executable there.
+
+## Conclusion
+
+Of course, this isn’t a perfect solution. Dragging and dropping files into the PWA doesn’t work for uploading, there might be some improved voice chat performance in the normal desktop version not available in the browser/PWA version, push-to-talk doesn’t work, and streaming still has no audio.
+
+However, if you’ve already been using primarily the browser version of Discord, creating a PWA is a nice upgrade until Discord finally makes a good client. Here’s to hoping that day actually comes.
+
+Anyhow, I hope this was helpful!
