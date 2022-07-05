@@ -4,7 +4,7 @@ title: Elnu’s Blog
 
 > 年暮ぬ笠きて草鞋はきながら
 
-<img src="kyoko.webp" style="float: right; margin: 0.5em">
+<a target="_blank" href="https://www.madoka-magica.com/tv/"><img src="kyoko.webp" style="float: right; margin: 0.5em"></a>
 
 Hello! I go by Elnu on the internet, and this is my blog, I hope you find something of interest here. I’m 17, I’m interested in programming, GNU/Linux, studying Japanese, watching anime, drawing, and creative writing. I’m horrible at doing things consistently.
 
