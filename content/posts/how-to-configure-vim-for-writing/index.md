@@ -1,6 +1,6 @@
 ---
 title: "How to Configure Vim for Writing"
-date: 2022-06-13T13:55:12-07:00
+date: 2022-06-13
 tags:
   - programming
   - writing

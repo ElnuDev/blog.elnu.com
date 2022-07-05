@@ -1,6 +1,6 @@
 ---
 title: "ウォルマートの[悪]{あく}[習]{しゅう}[慣]{かん}"
-date: 2022-07-03T14:44:23-07:00
+date: 2022-07-04
 tags:
   - nihongo
 slug: the-evils-of-walmart

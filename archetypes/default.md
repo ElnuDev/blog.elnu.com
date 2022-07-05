@@ -1,5 +1,5 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
+date: {{ substr .Date 0 10 }}
 ---
 

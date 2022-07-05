@@ -1,6 +1,6 @@
 ---
 title: "Cleaning Up HTML with Tidy"
-date: 2022-01-24T13:04:45-08:00
+date: 2022-01-24
 tags:
   - programming
 description: "Static site generators such as Hugo create incredibly messy HTML output. Luckily, HTML tidy can make your ugly markup pristine, even removing comments! Let’s learn how to use tidy and configure it to your needs."  

@@ -1,6 +1,6 @@
 ---
 title: "Furigana in Markdown Using Regular Expressions"
-date: 2022-01-23T14:47:56-08:00
+date: 2022-01-23
 tags:
   - japanese
   - programming

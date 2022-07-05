@@ -1,6 +1,6 @@
 ---
 title: "Final Fantasy Japanese Playthrough: Part 1"
-date: 2022-01-27T20:55:43-08:00
+date: 2022-01-27
 tags:
   - japanese
   - ff
