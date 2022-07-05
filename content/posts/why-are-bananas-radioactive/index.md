@@ -5,6 +5,7 @@ tags:
   - nihongo
 description: バナナはなんで放射性が放出しているのを疑問に思うかもしれません。
 slug: why-are-bananas-radioactive 
+hidden: true
 ---
 
 バナナはなんで[放]{ほう}[射]{しゃ}[性]{せい}が[放]{ほう}[出]{しゅつ}しているのを[疑]{ぎ}[問]{もん}に[思]{お}うかもしれません。
