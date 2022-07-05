@@ -1,6 +1,6 @@
 ---
 title: "Creating a Firefox PWA for Discord on Linux"
-date: 2022-07-01
+date: 2022-07-04
 tags:
   - programming
 ---
