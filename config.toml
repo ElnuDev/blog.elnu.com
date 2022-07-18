@@ -15,6 +15,7 @@ paginate = 3
 	HomepageHeader = '<a href="https://elnu.com/">&laquo; Back to profile</a>'
 	Theme = 'earthly'
 	ThemeColor = '#007559'
+	Stork = true
 
 [permalinks]
 	pages = '/:title'
@@ -29,3 +30,11 @@ paginate = 3
 			unsafe = true
 	[markup.highlight]
 		style = 'friendly'
+
+[outputFormats.stork]
+mediaType = 'application/json'
+baseName = 'stork.config'
+isPlainText = true
+
+[outputs]
+home = ['html', 'stork']
