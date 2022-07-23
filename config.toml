@@ -16,6 +16,7 @@ paginate = 3
 	Theme = 'earthly'
 	ThemeColor = '#007559'
 	Stork = true
+	SoudanURL = 'https://soudan.elnu.com'
 
 [permalinks]
 	pages = '/:title'
