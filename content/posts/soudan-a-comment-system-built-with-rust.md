@@ -1,6 +1,8 @@
 ---
 title: "Soudan: a Comment System Built With Rust!"
 date: 2022-07-24
+tags:
+  - programming
 ---
 
 I just finished working on Soudan, a Rust-based comment system!
